@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Explorando y Aprendiendo HTML">
+    <title>Naipes</title>
+    <body>
+            <div class="poker">
+                <div class="carta carta1">
+                     &hearts;
+                </div>
+                <div class="carta carta2">
+                     &clubs;
+                </div>
+                <div class="carta carta3">
+                     &diams;
+                </div>
+                <div class="carta carta4">
+                     &spades;
+                </div>
+            </div>
+            <p>Todos los derechos reservados&copy;</p>
+    </body>
+    <style>
+        .poker {
+              width:600px;
+              margin:0 auto;
+
+        }
+        .poker::after {
+            content:'';
+            display: table;
+            clear:both;
+        }
+        .carta {
+            float:left;
+            width:48%;
+            text-align: center;
+            font-size: 160px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border:2px solid black;
+            box-sizing: border-box;
+            margin-right: 5px;
+            height: 300px;
+            padding-top: 60px;
+        }
+        .carta1, .carta3 {
+            color:red;
+        }
+        .carta2, .carta4 {
+
+          margin-right: 0;
+          float:right;
+        }
+        p {
+          text-align: center;
+        }
+    </style>
+  </head>
+</html>

@@ -1,0 +1,148 @@
+                   </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="Version" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SupportedFrameworkRuntimeEdition" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>
+                    <!-- _locID_text="SupportedFrameworkRuntimeEdition" _locComment="" -->The SupportedFrameworkRuntimeEdition element is used to describe the minimum and maximum .NET Framework runtime required
+                    for the extension to run correctly.
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="MinVersion" type="xs:string" use="required" />
+                  <xs:attribute name="MaxVersion" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SystemComponent" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>
+                    <!-- _locID_text="SystemComponent" _locComment="" -->The SystemComponent element will hide the extension from the Extension Manager UI.
+                    Warning, users will not be able to uninstall the extension through the Extension Manager UI if this is set.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="AllUsers" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>
+                    <!-- _locID_text="AllUsers" _locComment="" -->Setting the AllUsers element to "true" will force the extension to be installed to the Per Machine location.
+                    This location for VS 2010 is %VSInstallDir%\Common7\Ide\Extensions\[Author]\[Name]\[Version]
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="AllowClientRole" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                  <xs:annotation>
+                      <xs:documentation>
+                          <!-- _locID_text="AllowClientRole" _locComment="" -->The AllowClientRole element specifies whether the extension is client enabled or not.
+                      </xs:documentation>
+                  </xs:annotation>
+              </xs:element>
+            </xs:all>
+            <xs:attribute name="Id" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  <!-- _locID_text="Identifier.Id" _locComment="" -->The Id attribute is a unique string for the extension.
+                  An extension with the same Id value and a newer version value of another extension is an update of that extension.
+                  The Id string can be any string and does not have to be a GUID.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="References" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="References" _locComment="" -->The References section allows the extension creator to define the dependencies that are required for their extension.
+              If the referenced VSIX is not installed or carried as a payload, the install will fail.
+              The end user will see an error message and be provided a link to download the missing dependency.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Reference" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          <!-- _locID_text="Reference.Name" _locComment="" -->The Name element is the product name of the missing dependency.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MoreInfoUrl" type="xs:string" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          <!-- _locID_text="Reference.MoreInfoUrl" _locComment="" -->The MoreInfoUrl is the URL where the end user can get more information about the dependency or a link to
+                          a page where they can download the dependency.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VsixPath" type="xs:string" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>
+                          <!-- _locID_text="Reference.VsixPath" _locComment="" -->The VsixPath element allows the dependency to be carried as a payload.  The path will refer to a relative
+                          path to the .VSIX file from the root of the outer VSIX.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:all>
+                  <xs:attribute name="Id" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        <!-- _locID_text="Reference.Id" _locComment="" -->The Id attribute is the Id of the missing dependency that is being referenced.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="MinVersion" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        <!-- _locID_text="Reference.MinVersion" _locComment="" -->The MinVersion and MaxVersion attributes provide an optional range of versions of the missing dependency.
+                        It is up to the developer to ensure a MaxVersion if there are known breaking changes in a newer release.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="MaxVersion" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        <!-- _locID_text="Reference.MaxVersion" _locComment="" -->The MinVersion and MaxVersion attributes provide an optional range of versions of the missing dependency.
+                        It is up to the developer to ensure a MaxVersion if there are known breaking changes in a newer release.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Content" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              <!-- _locID_text="Content" _locComment="" -->The Content section is used to describe the payload in the VSIX.
+              Not all content needs to be described.  Only the extension types need to be defined.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+             hÀ™FØİt1;W}ß?—Lâ^bğ™jhZ°åç2t!ÉDÎ$CÕ İ¼ÎbíÌ™¯s|ÙüÜ"³—¿œƒÁk?hË%¼¹HG®6‹¤eÄyÊBƒ¿6„ŞeËÓÔ‹.ò];T
+t‡ªÇY?LçºÒ«Ì¬ZœLsz/Ï¾İ’›ê”Ğÿ_v‚¤w"B”°Î×)Ö€ØøÉvx£ÖÿÄÆ:ÜôšÙ'H‡BÍ^Ÿ#Ï=¤É×B®pé&ÏÑc|iİËÄ0mÃ{ZT’ŠÅÛïV›•19Nqİú<Ài"?–­/ºO§V“áµ‰	{ˆnCÜa½ÂMÁ ÖHÔàşÈ D¼W¹—º)°äı£3Õ”YÉÕ±<’C(Íşn›KO{¥<A©Ñ>ÍœWHqù:ıÅŞÛ.ø1&¾õJLÙÏı5ñ®ªİšpˆ=³%îyíÓİ'2Š»Õ5o´òI­ü‡ÊTRÙ¾Z»jpÄ%?b`ù…Ì	Eœğúİöµî¯>¢"§B1D5ã!W*0èd©ºaû¨ìJãM§Â&1Ò1@O\¹ïŞ·¼©îïˆ´mMJŸÌ^€şX0(`»"w2³Áo÷o¾¬W—/b‡¶“ák’@ÿÂ+<‹”„1µqï	D:w'=¡İp™2
+S ¦~)KTcÙ¶‡a]Í÷v-»ú•/ÔictËê/@xHœâ‚ãİ<Cşëè5x‘w4aZÜU'·u´a=‡»“–<fÉØ—íR~L(ğ~»>Ö• ´ç ğèÒ¢T
+£‘Š¦@°)PıªoŞ§wmò âÒ“ÁC¸ÔêcÜ_=ù6]%vuìr.´:zÍ{	A(éùí 4P	’Ÿè¯ëDá³H‰íëÈ§7ßTıHr’z0êÚQ«döÍ&cÅÈ
+†©=^%yºÂx€Á½ó%¹ŒËbµä¶|¸„_èi<ÑÆs‡r:„f»öÖÏÖÏgºÒY—K&Ìhıïw„n°Üã6Ò4_ÜPÊ2speê£ãÕƒ,FME©ú4ıxaùsvšÛ‚tgÚı¢4„zÙ_oÛ±ş×ßÒ÷ºe³3¢Â´^)|VO{áƒ˜z‰Üó°Z¹+hz[ÊÒ¬/ß1£T´ óÇ6ëûÍÌº£0ÜexU˜~’Y¼'ZT ×	“ñÇç¯¼…ÅÛ¶ó+[¹aå]­î0ßÉñÁVJh-f¬ÅŠF^lsæ¹’¢1ó7'Ö´jtA9yÆñ«¦Ìáoá‡dû_'³=—o¹G#à‡%št$ş˜é“f=õE>6?wÜH¡rzcÿ• Óû«»TÌb9Îµ
+¦w rw×qgV'‹o1§“ÿ[¢è":)iÓeƒ¡˜í»ÿã L2ŒûİÆ±ˆxşVÚ˜¼«xúY)©½Qâ‹ÌF†iÈtáNÈB7/¨4¬Ø5}¦5|¥BÇŸá{€ÓR§ˆ‘ù»òdÅUÚzµ–zéÛÏ¬y–Õ >œ®Us'â¯#éñPd5¥D	+¶âà*&ˆZdx¬˜U—‘d\W´0OæSVqİ&éoÑÕ½¡(óèœË3ÎËB[ÛDÁç•»ÀÇ†#]oÕmbvö2vÍÀ€lRmE3õ×Ôäª“$½k÷fâ/D Æja¾˜¡GŠ¡É›ìèÜÇkã;ï{8ÇºÈàTí£pÈÂ°GS‹	Yñ£ÂY—¨%Şl˜†
+„W—quÕz©³“jah‚ÒÌ›Ã^ıQ£Q>8©5»îû7õÓ“ŒìÈZàYë—ù+ß˜èîŞÇÀî«ïYtve§¿œ ä%:Àg,ìï ´X•Á¸gzçsD×˜^ôåÕ½m¹°.;äË§YT¢¹ú#ìs\uüšğ+ÍÈÊÒè?OcŠü®[‹OÂ®êêŠr$ıÓk2’½d°äÅT—^ÙÇ=‘Râçd(Š¸g3@ëRFzßâ¨ã«ÙòX²&÷Üù1ä4Ìğfö‰z/}ü¯ŞYæû3gy†³Æ¯fğØÚxj;|zü¶´Å¶¶÷ä6U{]êgYùáÑ6]ÎjŞ‡@î°.‘a–'qšÂ$]ÁŠi‰`çã)×r4CvFÇÄ¬£’¥È2sniÖÁ‡L†>ğ+€~t8[®ƒr±N‚üÑ³İ+¼Éâï€˜ág¤o	ª”îÜìØæ-ïº¿qæ³¾%' ”ºB¬‚	Ê^¦ôxôQ€^§á´°7tKKDZê.p?¸±#;%^®\)/aŞä@¦›ÒÖëóDFe
+Q ytJ•âOËÓhÜÎa¼Ú»bÛ´Üû¥†¸+âQÑ74J8¾OÚırS>s’ÃtéÔÛÒÙ­öÎ,şeÊghÙO&f„æ”¥6P¦·4SÓq¼
+¬']‡`å]ˆÚé—¨3==ÿZ´ÛI;æ•VÖHÆ:á|øø¸œ*Êı.Õıò6Ñ$ÄØÈjL6gk‡Î5Ú;7ì!_òCl;}UöI¹@èÛ°@ÆÑù²#UnÓkÒ¡o™À†€	Ğô×/3+ï)\$apÒ+´y¸jõ8‡7Ek9éÈÒùSª½€PKkSNÜš3Âo‹˜µT]SYNàÙmNÒİ
+7C%.ÿü&ëÃÈ«½: `õ0îb@'ˆ¸:ğŒÍèK€ñpFoZ"^Ø
+L±@›Ú2ÂP@…Æì=#ãİ^ly„„*ĞÑY¸Û†yİÖ÷`ãhÕ1‚µ&`H¯zÆ=Ã££[6™òW*ÿøFS§m#"±öùAKÑ–ÔîƒÅO„L+f@}R…b!ÏqHyG‘¼¸5}÷İıÃ,Ò%/#İútW!şÆ&EƒödacWÌœc_…|<òOşšJ^©ïOïB‹=³İÍ;şèEVõÉÜÒ@P¼<9"Ÿš__$àwY/(š7òıKNpŠ$@,mˆnà‡ñ©Ç†a
+J§Ó/A‰agàj%î%‘<ğ6HiUT‹óƒ GÕ›Ãé&›ú,Ï$bÅjú¡0$+ŠÎ+,)ô°6É,u	IAŒ#âp4áÄC?¹…Om·÷¥Di6ã{û2LNÏŞ~:8rÍÜÏ}qNÆlFñŠ,ã<‘Ìîò–y²7óO{¿iqVãıá‘¾rª‡ùƒiÒ…N—s˜öGëìcP/º‰Ú€¢§`RŒşÚİô=-&—Çåù
+	#ÆbšÖp’±í˜xGÆ¨ğ MF°ğ8ò!5TNwpA¢wÿ…W¯hôjn¨¨È)\®ËÜºJrÃ`Óå”zlk?ÑX18[H°» "(7lïD1öJ#Wôr‘ÆË  f­>9ºÊı{h×ó+à¾@‰ogSBN— Î«i6EU.Şj–3Ó¹	ï¢Ö˜N4fŠà>¨
+Ózq÷<¿Š"a‹ørsy_£î‘Ë°ÑŠº¿ş9åóá¿L¡ó†vŠŸ¸ƒÍf¬ÓR¢Å¸Ö<Y­EI¤Ôú]=Äíó‚Ğ¨-mb'‹S`zû€ Ğ¨[˜e      ^ØAb^ØAbA½Êc^Ø]€   ˆ    :https://i.ytimg.com/vi/VcGua3-5GY8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDs__B5Xd8hSqzWXmXH2o8hs-Eo_g strongly-framed 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAAAAgAAAAAAAAAAAAAAAAAAAAEANAFmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAXXMIIF0zCCBLugAwIBAgIQaUCS5UOv1s8CAAAAAGcwxzANBgkqhkiG9w0BAQsFADBCMQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZpY2VzMRMwEQYDVQQDEwpHVFMgQ0EgMU8xMB4XDTIwMDUwNTA4MDg1M1oXDTIwMDcyODA4MDg1M1owaDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxEzARBgNVBAoTCkdvb2dsZSBMTEMxFzAVBgNVBAMTDmVkZ2VzdGF0aWMuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs1lrf3e91kv8Fdm/SGBFATdnOWTVo866JY9zdgRvRuykRVTaLycIsJ/sL33JKMTER7htofiaM8QxVp3DP+A+C72PyHcMuHDOb3sw7uxaCq0YWiweSmiFz/loEv14UZR5YB0NAEVbzHAaDmvXmZXURMDnd+nuXgQkeaP/Lda4TjK5Yn

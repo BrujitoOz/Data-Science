@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estructuras</title>
+</head>
+<body>
+    <div class="contenedor"> 
+        <!--los roles son para respetar el formato wai-aria-->
+        <header role="banner"> <!--el header por lo general tiene el rol banner-->
+            <div class="logo">
+                <img src="img/logo.png" alt="logo empresa">
+            </div>
+            <nav class="navegacion" role="navigation"> <!--para navegar-->
+                <ul>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="#Cursos">Cursos</a></li>
+                    <li><a href="http://google.com" target="_blank">Ir a Google</a></li>
+                    <li><a href="#noticias">Ir a noticias</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="contenido-principal" role="main">
+            <section id="Cursos">
+                <h2>Nuestros cursos</h2>
+                <div>
+                    <h3>HTML</h3>
+                    <img src="img/html5.png" height="200">
+                    <a href="programa-html5.pdf" download>Descargar programa</a>
+                    <!--listas no ordenadas -->
+                    <p>Ventajas de este Curso:</p>
+                    <ul>
+                        <li>Lo puedes tomar en linea.
+                            <ul>
+                                <li>En Udemy</li>
+                                <li>A cualquier hora del dia</li>
+                            </ul>
+                        </li>
+                        <li>Avanzar a tu ritmo</li>
+                        <li>Puedes preguntar online</li>
+                    </ul>
+                    <p>Temario del curso</p>
+                    <ol>
+                        <li>Básico de HTML</li>
+                        <li>Etiquetas HTML5
+                            <ol>
+                                <li>Elementos semanticos</li>
+                                <li>Header</li>
+                            </ol>
+
+
+                        </li>
+                        <li>Crear Enlaces</li>
+                        <li>Crear listas</li>
+
+                    </ol>
+                    <p>Lo que debes aprender para ser desarrollador web</p>
+                    <dl>
+                        <dt>HTML5</dt>
+                        <dd>Agrega estructura a tus desarrollos</dd>
+                        <dt>CSS3</dt>
+                        <dd>Agregar presentacion a tus desarrollos</dd>
+                        <dt>Javascript</dt>
+                        <dd>Agregar inteligencia a tus desarrollos</dd>
+                    </dl>
+
+                </div>
+
+                <div>
+                     <h3>CSS3</h3>
+                     <img src="img/css3.png" height="200">
+                </div>
+                    
+                <div>
+                     <h3>Javascript</h3>
+                     <img src="img/js.jpg" height="200">
+                </div>
+            </section>
+
+            <section id="noticias">
+                <h2>Últimas noticias</h2>
+                <article role="article">
+                    <h3>Aprender aprogramar en el ciclo 21 es muy importante</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, dolorum aperiam consectetur omnis distinctio temporibus obcaecati sapiente. Autem quod exercitationem neque tempore facilis perspiciatis, eius ullam amet illum explicabo. Ut?</p>
+                </article>
+            </section>
+        </main> <!--contenido principal-->
+
+
+
+
+        <aside role="complementary">
+            <table width="300">
+                <caption>
+                        <h2>Próximos Cursos</h2>
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tfoot> 
+                            <tr>
+                                <td colspan="2" align="center">No te lo puedes perder</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+
+                                <td rowspan="2">PHP</td>
+                                <td>$99</td>
+                            </tr>
+                                <td>asdas</td>
+                            <tr>
+                                <td>MYSQL</td>
+                                <td>$99</td>
+                            </tr>
+                            <tr>
+                                <td>Javascript</td>
+                                <td>$99</td>
+                            </tr>
+                            <tr>
+                                <td>Python</td>
+                                <td>$99</td>
+                            </tr>
+                        </tbody>
+                </caption>
+            </table>
+        </aside>
+    </div>
+    <footer role="contentinfo">
+        <div class="nosotros">
+            <h3>Sobre nuestra escuela</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi minus labore, 
+                at aliquid odio pariatur sit maxime officia harum magni ipsam exercitationem 
+                voluptas quasi error, enim, maiores ad cum. Debitis!</p>
+        </div>
+
+        <div class="menu">
+            <nav class="navegacion" role="navigation">
+                menu aqui
+            </nav>    
+        </div>
+        <p>Cursos de diseño web &mdash; Todos los derechos reservados &copy;</p>
+    </footer>
+</body>
+</html>
