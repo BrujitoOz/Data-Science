@@ -96,3 +96,5 @@ if posijugador + cant_movi_permitidos >= encontrado or posijugador - cant_movi_p
     posijugador = encontrado
 else:
     print("Se queda donde esta")
+
+h = 12
