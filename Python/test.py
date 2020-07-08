@@ -63,38 +63,42 @@ lista_compleja = [
 ]
 print(simplificar_lista(lista_compleja))
 """
+
+
+"""
 m = [
-    [0,1,4,1],
-    [2,2,3,1],
-    [4,4,1,3],#
-    [1,1,1,2],
-    [0,3,3,3],
-    [5,2,1,0]
+    [1,2,3,4],
+    [1,2,3,4],
+    [1,2,3,4],
+    [1,2,3,4]
 ]
-posijugador = 2
-#        0 1 2 3 4 5
-gemas = [1,4,3,2,2,1]
-maximo = -1
-index = -1
-for i in range(6):
-    if maximo < gemas[i]: 
-        maximo = gemas[i]
-        index = i
-print("Tenemos mas gemas de tipo:",index)
-print("cantidad actual de esta gema:",maximo)
-moverse = -1
-encontrado = -1
-for i in range(len(m)):
-    if moverse < m[i].count(index):
-        moverse = m[i].count(index)
-        encontrado = i
-print("indice a donde debemos movernos", encontrado)
+cA, (cH, cV, cD) = pywt.dwt2(m,'haar')
+coefs = cA, (cH,cV,cD)
+lo = pywt.idwt2(coefs,'haar')
+print(lo)
+pywt.dwt2()
+"""
 
-cant_movi_permitidos = 2
-if posijugador + cant_movi_permitidos >= encontrado or posijugador - cant_movi_permitidos <= encontrado:
-    print("movimiento valido")
-    posijugador = encontrado
-else:
-    print("Se queda donde esta")
+"""
+import numpy as np
+print(pywt.dwt([1,2,3,4],'haar'))
+cof1, cof2 = pywt.dwt([1,2,3,4],'haar')
+print(pywt.idwt(cof1, cof2, 'haar'))
 
-h = 12
+m = [
+    [100, 50, 60, 150],
+    [20,60,40,30],
+    [50,90,70,82],
+    [74,66,90,58]
+]
+print(pywt.dwt2(m,'haar'))
+pywt.idwt2(    (pywt.dwt2(m,'haar')), 'haar'     )
+"""
+
+import numpy as np
+import pywt
+data = [3,29,30,33,45,46,50,56,57]
+data = np.asarray(data)
+(Ca,Cb) = pywt.dwt(data, 'haar')
+#imag = pywt.dwtn(data.imag, 'haar') 
+#print(Ca,Cb)

@@ -1,6 +1,7 @@
-import pywt
 from PIL import ImageChops
 import numpy as np
+import pywt
+
 def is_greyscale(im):
     if im.mode == "RGB":
         rgb = im.split()
