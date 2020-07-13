@@ -2,8 +2,8 @@ import pygame
 import random
 
 class dice(object):
-    dd = [pygame.image.load('dado5.png'), pygame.image.load('dado4.png'), pygame.image.load('dado6.png') 
-    , pygame.image.load('dado3.png') , pygame.image.load('dado2.png') , pygame.image.load('dado1.png')]
+    dd = [pygame.image.load('img/dado5.png'), pygame.image.load('img/dado4.png'), pygame.image.load('img/dado6.png') 
+    , pygame.image.load('img/dado3.png') , pygame.image.load('img/dado2.png') , pygame.image.load('img/dado1.png')]
     def __init__(self,x,y,width,height):
         self.x = x
         self.y = y

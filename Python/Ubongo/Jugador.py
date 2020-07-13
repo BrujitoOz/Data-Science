@@ -1,6 +1,6 @@
 import pygame
 
-py = [pygame.image.load('p1.png'), pygame.image.load('p2.png')]
+py = [pygame.image.load('img/p1.png'), pygame.image.load('img/p2.png')]
 
 class player(object):
     def __init__(self,x,y,width,height, num, pos):

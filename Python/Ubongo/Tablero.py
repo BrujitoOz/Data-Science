@@ -1,7 +1,7 @@
 import pygame
 
-brd1 = pygame.image.load('tablero1.png')
-brd2 = pygame.image.load('tablero2.png')
+brd1 = pygame.image.load('img/tablero1.png')
+brd2 = pygame.image.load('img/tablero2.png')
 
 class board(object):
     def __init__(self, x, y, width, height):

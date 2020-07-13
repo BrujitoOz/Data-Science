@@ -1,5 +1,5 @@
 import pygame
-py3 = pygame.image.load('p3.png')
+py3 = pygame.image.load('img/p3.png')
 class playerCPU(object):
     def __init__(self,x,y,width,height):
         self.x = x

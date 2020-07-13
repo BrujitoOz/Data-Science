@@ -1,5 +1,5 @@
 import pygame
-flc = pygame.image.load('triangulo.png')
+flc = pygame.image.load('img/triangulo.png')
 
 class arrow(object):
     

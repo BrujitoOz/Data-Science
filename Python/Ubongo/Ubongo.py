@@ -24,7 +24,7 @@ time_lapsed = 0
 plantilla = None
 jugadores = [0, 1]
 players = []
-bg = pygame.image.load('mesa.jpg')
+bg = pygame.image.load('img/mesa.jpg')
 cronometro = stopwatch(30, 300,0,0)
 cont = 0
 font = pygame.font.SysFont('comicsans', 50, True)
@@ -349,7 +349,7 @@ def cpumove(np, turno):
             return 
                         
 def Start():
-    portada = pygame.image.load('Portada.png')
+    portada = pygame.image.load('img/Portada.png')
     cont = 0
     non_start = True
     font = pygame.font.SysFont(' comicsans', 50, True)
@@ -370,7 +370,7 @@ def Start():
         pygame.display.update()
         cont = cont + 1
 def Config_screen():
-    conf = pygame.image.load('Pant_config.jpg')
+    conf = pygame.image.load('img/Pant_config.jpg')
     flecha = arrow(395, 365, 0, 0)
     dificultad = True
     numplay = False

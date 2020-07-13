@@ -17,7 +17,7 @@ from Deteccion_col_plantilla import templatecirclescolission
 class Game(object):
     def __init__(self):
         self.win = pygame.display.set_mode((1200, 800))
-        self.bg = pygame.image.load('mesa.jpg')
+        self.bg = pygame.image.load('img/mesa.jpg')
         self.run = True
         self.ChoosePos = True
         self.press = False

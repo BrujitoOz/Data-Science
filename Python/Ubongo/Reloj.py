@@ -1,5 +1,5 @@
 import pygame
-clc = pygame.image.load('cronometro.png')
+clc = pygame.image.load('img/cronometro.png')
 
 class stopwatch(object):
     
