@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formularios</title>
+</head>
+<body>
+    <h2>Creando formularios</h2>
+    <!--inicia formlario-->
+    <form class="formulario">
+        <fieldset> <!--fieldset agrupa elementos del formulario-->
+            <legend>Tus datos</legend> <!--titulo del fieldset-->
+            <label for="lb1">Nombres:</label> <!--for:name espera el mismo id del input-->
+            <input id="lb1" name="InputName" type="text" placeholder="Escribe tu nombre" autocomplete="off">
+            <br><br>
+            <label for="lb2">Apellidos:</label>
+            <input id="lb2" name="InputLastName" type="text" placeholder="Escribe tu apellido" autocomplete="off">
+            <br><br>
+            <label for="lb3">sexo</label> <br>
+            <input id="lb3" type="radio" name="sexo" value="mujer" checked>Mujer <br> <!--checked preelegido-->
+            <input id="lb3" type="radio" name="sexo" value="homnbre">Homnbre <br>
+            <input id="lb3" type="radio" name="sexo" value="otro">Otro <br>
+            <br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informacion sobre tu curso</legend>
+            <label for="turno">Turno:</label>
+            <select id="turno" name="turno">
+                <option value="matutino">Matutino</option>
+                <option value="vespertino" selected>Vespertino</option>
+                <option value="nocturno">Nocturno</option>
+
+            </select>
+            
+        </fieldset>
+        <br><br>
+        <input type="submit" value="oli">
+
+    </form>
+    <!--cierra formulario-->
+</body>
+</html>
