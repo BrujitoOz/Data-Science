@@ -3,40 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>formularios</title>
+    <title>Formularios</title>
 </head>
-<body>
-    <h2>Creando formularios</h2>
-    <!--inicia formlario-->
-    <form class="formulario">
-        <fieldset> <!--fieldset agrupa elementos del formulario-->
-            <legend>Tus datos</legend> <!--titulo del fieldset-->
-            <label for="lb1">Nombres:</label> <!--for:name espera el mismo id del input-->
-            <input id="lb1" name="InputName" type="text" placeholder="Escribe tu nombre" autocomplete="off">
-            <br><br>
-            <label for="lb2">Apellidos:</label>
-            <input id="lb2" name="InputLastName" type="text" placeholder="Escribe tu apellido" autocomplete="off">
-            <br><br>
-            <label for="lb3">sexo</label> <br>
-            <input id="lb3" type="radio" name="sexo" value="mujer" checked>Mujer <br> <!--checked preelegido-->
-            <input id="lb3" type="radio" name="sexo" value="homnbre">Homnbre <br>
-            <input id="lb3" type="radio" name="sexo" value="otro">Otro <br>
-            <br><br>
-        </fieldset>
 
+
+<body>
+    <!--inicia formlario-->
+    <h2>Creando formularios</h2>
+    <form class="formulario" novalidate>
+
+
+        <!--campo datos usuario-->
+        <fieldset>
+            <legend>Tus datos</legend> <!--titulo del fieldset-->
+
+            <label for="lb1">Nombres:</label>
+            <input id="lb1" name="InputName" type="text" placeholder="Escribe tu nombre" autocomplete="off" required>
+            <br><br>
+
+            <label for="lb2">Apellidos:</label>
+            <input id="lb2" name="InputLastName" type="text" placeholder="Escribe tu apellido" autocomplete="off" required>
+            <br><br>
+
+            <label for="lb3">Genero:</label> <br>
+            <input id="lb3" type="radio" name="Genero" value="mujer" checked>Mujer <br> <!--checked preelegido-->
+            <input id="lb3" type="radio" name="Genero" value="homnbre">Homnbre <br>
+            <input id="lb3" type="radio" name="Genero" value="otro">Otro <br>
+            <br>
+
+            <label for="lbFechaCumple">Fecha de Cumpleaños</label>
+            <input id="lbFechaCumple" type="date" name="fecha">
+            <br><br>
+
+            <label for="emailUsuario">Correo electronico</label>
+            <input id="emailUsuario" type="email" placeholder="correo@dominio.com" required>
+            <br><br>
+
+            <label for="urlWebUsuario">Tu sitio web</label>
+            <input id="urlWebUsuario" type="url" name="sitioweb" placeholder="http://www.sitioweb.com">
+            <br><br>
+            <!--range input-->
+            <label >¿Cuanto sabes de html?</label>
+            <input type="range" name="puntaje" id="" min="0" max="10">
+            <br><br>
+            <!--number input-->
+            <label for="">Personas que vienen contigo</label>
+            <input type="number" name="" id="" min="0" max="5"> 
+        </fieldset>
+        <!--campo info del curso-->
         <fieldset>
             <legend>Informacion sobre tu curso</legend>
+
+            <!--Elegir entre multiples opciones con select-->
             <label for="turno">Turno:</label>
             <select id="turno" name="turno">
                 <option value="matutino">Matutino</option>
                 <option value="vespertino" selected>Vespertino</option>
                 <option value="nocturno">Nocturno</option>
-
             </select>
-            
+            <br><br>
+            <!--Forma alternativa de elegir multiples opciones-->
+            <label for="lb4">¿Que curso te gustaria que agreguemos?</label>
+            <input list="propuesta" name="encuesta">
+            <datalist id="propuesta">
+                <option value="jQuery"></option>
+                <option value="Aplicaciones Web"></option>
+                <option value="AngularJS"></option>
+            </datalist>
+            <br><br>
+            <!--Elegir multiples opciones con checkbox-->
+            <label for="lb5">Elige tus cursos</label> <br>
+            <input type="checkbox" name="php">PHP <br>
+            <input type="checkbox" name="html5">HTML5 <br>
+            <input type="checkbox" name="css">CSS <br>
+            <input type="checkbox" name="javascript">JavaScript <br>
+            <input type="checkbox" name="jquery">Jquery <br>
+            <br>
+
+            <label for="FechaInicio">Fecha en la que desea iniciar el curso</label> <br>            
+            <input id="FechaInicio" name="fechainicio" type="datetime-local"> 
+            <!--
+            <input id="FechaInicio" type="month" name="fecha"> <br>
+            <input type="week" name="fecha"> <br>
+            <input type="time" name="fecha"> <br>
+            -->
         </fieldset>
-        <br><br>
-        <input type="submit" value="oli">
+
+        <fieldset>
+            <legend>Extra</legend>
+            <label for="Las primeras 10 personas reciben una camisa gratis, elige el color"></label>
+            <input type="color" name="color">
+        </fieldset>
+
+        <fieldset>
+            <legend>Usuario y Password</legend>
+            <label for="">Usuario:</label> <br>
+            <input type="text" name="Usuario" placeholder="Usuario"> <br>
+            <label for="">Password:</label> <br>
+            <input type="password" name="password" id="" placeholder="Password" required> <br>
+        </fieldset>
+
+        <button type="reset">Borrar</button><!--para agregar funciones de js-->
+        <input type="submit" value="Enviar">
 
     </form>
     <!--cierra formulario-->
