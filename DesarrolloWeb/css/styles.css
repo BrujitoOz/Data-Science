@@ -1,0 +1,78 @@
+/*Global*/
+.contenedor {
+    /*max-width: 1200px;*/ /*limite que puede tomar*/
+    max-width: 120rem; /*1200 px*/
+    margin: 0 auto 0 auto;
+}
+/*define un fontsize estandar */
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 3.4rem;
+}
+h3 {
+    font-size: 3rem;
+}
+h4 {
+    font-size: 2.6rem;
+}
+
+/*Header*/
+.header-site.inicio {
+    background: url(/DesarrolloWeb/img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+    /*min-height: 600px;*/
+}
+.content-header {
+     /*con esto ocupa el 100% de la altura para bajar "Venta de Casas..." hacia abajo*/
+    /*al ser hijo, este toma la maxima capacidad de su padre*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* como el flex direction fue cambiado a colum, el justify content flex end empuja abajo*/
+}
+.content-header h1 {
+    color: white;
+    padding-bottom: 1rem;
+    max-width: 50rem; /*para que "venta de ..." haga un br*/
+    line-height: 1.8;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between; /* alinea contenido horizontalmente */
+    align-items: center; /* alinea verticalmente*/
+    padding-top: 3rem; /* margen de Bienes Raices y nav */
+}
+
+html {
+    font-size: 62.5%; /*para acomodar el rem, siendo 1rem 10 pixeles*/
+}
+body {
+    /*font-family: Arial, Helvetica, sans-serif; */
+    /* safe font que usa cualquier navegador */
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem; /*que vuelva a ser 16px*/
+}
+
+
+
+/*navegacion*/
+.navegacion a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8rem; /*rem se acomoda a cualquier pantalla - 18px*/
+    margin-right: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navegacion a:last-of-type {
+    margin: 0;
+}
+/* color al pasar el cursor */
+.navegacion a:hover {
+    color: rgb(103, 233, 52);
+}

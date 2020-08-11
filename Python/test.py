@@ -63,3 +63,16 @@ lista_compleja = [
 ]
 print(simplificar_lista(lista_compleja))
 """
+"""
+n = int(input())
+for i in range(n):
+    s1 = input()
+    s2 = input()
+"""
+s = "aaaa"
+c = 0
+for i in range( len(s) // 2):
+    if s[i] == s[-1 - i]:
+        c+=1
+print(c)
+# %%
