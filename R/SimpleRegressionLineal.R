@@ -2,7 +2,6 @@
 
 # Importar dataset
 dataset = read.csv("Salary_Data.csv")
-
 # SplitRatio se refiere al tamanio de conjunto de entrenamiento
 # install.packages("caTools")
 library(caTools)

@@ -47,7 +47,7 @@ img {
 }
 /*Header*/
 .header-site.inicio {
-    background: url(/DesarrolloWeb/img/header.jpg);
+    background: url(../img/header.jpg);
     background-position: center center;
     background-size: cover;
     height: 100vh;
@@ -163,7 +163,7 @@ img {
 }
 /*contacto casa sueños*/
 .image-contact {
-    background-image: url(/DesarrolloWeb/img/encuentra.jpg);
+    background-image: url(../img/encuentra.jpg);
     background-size: cover;
     background-position: center center;
     height: 40rem;
@@ -241,7 +241,7 @@ img {
 }
 .testimonial blockquote::before {/*como es un pesudoelement hay que dar siempre ancho y alto*/
     content: '';
-    background-image: url(/DesarrolloWeb/img/comilla.svg);
+    background-image: url(../img/comilla.svg);
     width: 5rem;
     height: 5rem;
     display: block;
