@@ -15,7 +15,7 @@ class Ciudad:
         distancia = math.sqrt((distanciaX * distanciaX) + (distanciaY * distanciaY))
         return distancia
 
-    def get_nombre_ciudad(ciudad):
+    def get_nombre_ciudad(self, ciudad):
         return ciudad.name
 # ### Clase administrción de tour
 # In[3]:
