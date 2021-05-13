@@ -48,49 +48,47 @@ class Node:
         else:
             return (benefit, self.max_weight)
 
+class bb():
+    def __init__(self, max_weight, items):
+        self.max_weight = max_weight
+        self.items = items
+    
+    def sol():
+        queue = PriorityQueue()
 
-def main():
-    max_weight = 7
-    items = [
-        Item(2, 1),
-        Item(3, 2),
-        Item(4, 3),
-        Item(5, 4),
-    ]
+        root = Node([None] * len(items), items, max_weight, 0)
+        highest_lb_benefit, _ = root.lower_bound()
+        queue.put(root)
 
-    queue = PriorityQueue()
+        path = []
+        while not queue.empty():
+            node = queue.get()
+            lb_benefit, _ = node.lower_bound()
 
-    root = Node([None] * len(items), items, max_weight, 0)
-    highest_lb_benefit, _ = root.lower_bound()
-    queue.put(root)
+            if lb_benefit < highest_lb_benefit:
+                break
+            else:
+                highest_lb_benefit = lb_benefit
+                path.append(node)
 
-    path = []
-    while not queue.empty():
-        node = queue.get()
-        lb_benefit, _ = node.lower_bound()
+            if node.index < len(items):
+                for i in range(2):
+                    binary = deepcopy(node.binary)
+                    binary[node.index] = i
+                    new_node = Node(binary, items, max_weight, node.index + 1)
 
-        if lb_benefit < highest_lb_benefit:
-            break
-        else:
-            highest_lb_benefit = lb_benefit
-            path.append(node)
+                    lb_benefit, lb_weight = new_node.lower_bound()
+                    if lb_weight <= max_weight and lb_benefit >= highest_lb_benefit:
+                        queue.put(new_node)
+        return path, highest_lb_benefit
 
-        if node.index < len(items):
-            for i in range(2):
-                binary = deepcopy(node.binary)
-                binary[node.index] = i
-                new_node = Node(binary, items, max_weight, node.index + 1)
+        
 
-                lb_benefit, lb_weight = new_node.lower_bound()
-                if lb_weight <= max_weight and lb_benefit >= highest_lb_benefit:
-                    queue.put(new_node)
+max_weight = 28
+items = [ Item(8, 4), Item(12, 8), Item(16, 12), Item(20, 16)]
+bb(max_weight, items)
 
-    print('Camino realizado')
-    for i, node in enumerate(path):
-        print(
-            f'cota_inferior:{node.lower_bound()[0]} | beneficio:{node.value()[0]} | cota_superior:{node.upper_bound()[0]}')
-    print(f'c:{highest_lb_benefit}')
-
-
-if __name__ == "__main__":
-    main()
+path, highest_lb_benefit = bb.sol()
+for i, node in enumerate(path):
+    print(f'cota_inferior:{node.lower_bound()[0]} | beneficio:{node.value()[0]} | cota_superior:{node.upper_bound()[0]}')
+print(f'c:{highest_lb_benefit}')
