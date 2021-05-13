@@ -35,7 +35,7 @@ class SA:
         prob = 1
       else:
         prob = math.exp((ecurrent-enew)/temperatura)
-      if prob > random.randint(0,1):
+      if prob > random.random():
         current = new
       return current
 

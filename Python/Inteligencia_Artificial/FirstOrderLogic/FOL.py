@@ -12,7 +12,7 @@ facts(hijo,
 
 facts(esposo,
 ("Sabino", "Rosalia"),
-("David", "Flore"),
+("David", "Flor"),
 ("Rene", "Nelith")
 )
 # Motor de inferencia

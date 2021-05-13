@@ -115,4 +115,9 @@ numPoblacion = 800
 generacion = 1
 
 ia = Genetic8Queens(N, numPoblacion, generacion)
-ia.Sol()
+#ia.Sol()
+a = ia.Inicializacion(4,8)
+print(a)
+def convert(list):
+  res = sum(d * 10**i for i, d in enumerate(list[::-1]))
+  return(res)
