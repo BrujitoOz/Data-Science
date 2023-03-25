@@ -1,21 +1,21 @@
-# Leer dataset
+#%% Leer dataset
 import numpy as np
 import pandas as pd
-dataset = pd.read_csv("Social_Network_ads.csv")
+dataset = pd.read_csv("../Datasets/Social_Network_ads.csv")
 x = dataset.iloc[:, [2,3]].values
 y = dataset.iloc[:, 4].values
-# Dividir
+#%% Dividir
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=0)
-# Entrenamiento
+#%% Entrenamiento
 from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion="entropy")
 classifier.fit(x_train, y_train)
-# Prediccion
+#%% Prediccion
 y_pred = classifier.predict(x_test)
 print(y_pred)
 print(y_test)
-# Matriz
+#%% Matriz
 from sklearn .metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 def MatrizdeConfusion(cm):
@@ -30,7 +30,7 @@ def MatrizdeConfusion(cm):
     print("Cantidad desaciertos:",desaceritos)
 MatrizdeConfusion(cm)
 
-# Visualizacion
+#%% Visualizacion
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 def graphic(x, y, titulo):
@@ -51,3 +51,4 @@ def graphic(x, y, titulo):
     plt.show()
 graphic(x_train, y_train, "Clasificador Arboles de desicion (Conjunto de Entrenamiento)")
 graphic(x_test, y_test, "Clasificador Arboles de desicion (Conjunto de Test)")
+# %%

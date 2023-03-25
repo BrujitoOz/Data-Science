@@ -21,9 +21,9 @@ U = hopfield(entradas)
 print(U)
 # evaluacion
 while True:
-    resp1 = np.dot(U, np.matrix([1, -1, -1, -1]).T) 
+    resp1 = np.dot(U, np.matrix([1, -1, -1, -1]).T)
     print(f(resp1))
-    resp2 = np.dot(U, resp1) 
+    resp2 = np.dot(U, resp1)
     print(f(resp2))
     if (np.all( resp1 == resp2)):
         print("Hay convergencia")

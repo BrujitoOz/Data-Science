@@ -1,7 +1,7 @@
 #%% Leer dataset
 import numpy as np
 import pandas as pd
-dataset = pd.read_csv("Wine.csv")
+dataset = pd.read_csv("../Datasets/Wine.csv")
 x = dataset.iloc[:, 0:13].values
 y = dataset.iloc[:, 13].values
 #%% Dividir
@@ -25,7 +25,7 @@ classifier.fit(x_train, y_train)
 y_pred = classifier.predict(x_test)
 #%% Matriz de confusion
 from sklearn .metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred) 
+cm = confusion_matrix(y_test, y_pred)
 #%% Visualizacion
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap

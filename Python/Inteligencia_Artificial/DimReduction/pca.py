@@ -1,7 +1,7 @@
 #%% Leer dataset
 import numpy as np
 import pandas as pd
-dataset = pd.read_csv("Wine.csv")
+dataset = pd.read_csv("../Datasets/Wine.csv")
 x = dataset.iloc[:, 0:13].values
 y = dataset.iloc[:, 13].values
 #%% Dividir

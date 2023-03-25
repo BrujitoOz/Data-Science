@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-dataset = pd.read_csv('Churn_Modelling.csv')
+dataset = pd.read_csv('../Datasets/Churn_Modelling.csv')
 X = dataset.iloc[:, 3:13].values
 y = dataset.iloc[:, 13].values
 #%% Datos categóricos
@@ -14,7 +14,7 @@ labelencoder_X_2 = LabelEncoder()
 X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
 onehotencoder = ColumnTransformer(
     [('one_hot_encoder', OneHotEncoder(categories='auto'), [1])],   
-    remainder='passthrough'                        
+    remainder='passthrough'
 )
 X = onehotencoder.fit_transform(X)
 X = X[:, 1:]

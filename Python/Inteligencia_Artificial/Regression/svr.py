@@ -1,10 +1,10 @@
 #%% Lectura
 import numpy as np
 import pandas as pd
-dataset = pd.read_csv("Position_Salaries.csv")
+dataset = pd.read_csv("../Datasets/Position_Salaries.csv")
 x = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
-#%% Reescalar 
+#%% Reescalar
 from sklearn.preprocessing import StandardScaler
 sc_x = StandardScaler()
 sc_y = StandardScaler()
@@ -14,7 +14,7 @@ y = sc_y.fit_transform(y.reshape(-1,1))
 from sklearn.svm import SVR
 regression = SVR(kernel = "rbf")
 regression.fit(x,y)
-#%% Prediccion 
+#%% Prediccion
 y_pred = sc_y.inverse_transform(regression.predict((x)))
 #%% Metricas
 from sklearn.metrics import mean_squared_error, mean_absolute_error

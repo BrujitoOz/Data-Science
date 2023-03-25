@@ -1,7 +1,7 @@
 #%% Lectura
 import pandas as pd
 import numpy as np
-dataset = pd.read_csv("50_Startups.csv")
+dataset = pd.read_csv("../Datasets/50_Startups.csv")
 x = dataset.iloc[:,:-1].values
 y = dataset.iloc[:,-1].values
 #%% Correlacion

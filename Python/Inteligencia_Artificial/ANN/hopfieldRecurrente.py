@@ -92,7 +92,7 @@ def hopfield(train_files, test_files, theta = 0.5, time = 100, size = (100,100),
         counter += 1
         print("FIN")
 
-# Funcion principal 
+# Funcion principal
 # para archivos de entrenamiento
 current_path = os.getcwd()
 train_paths = []

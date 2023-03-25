@@ -8,7 +8,7 @@ def minimonodo(data, t, pesos, n_rows, ncols):
     distanciaminima = 1.0e20
     for i in range(n_rows):
         for j in range(ncols):
-            de = euc_dist(pesos[i][j], data[t]) 
+            de = euc_dist(pesos[i][j], data[t])
             if de < distanciaminima:
                 distanciaminima = de
                 BMU = (i, j)

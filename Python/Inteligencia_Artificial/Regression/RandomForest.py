@@ -1,7 +1,7 @@
 #%% Lectura
 import numpy as np
 import pandas as pd
-dataset = pd.read_csv("Position_Salaries.csv")
+dataset = pd.read_csv("../Datasets/Position_Salaries.csv")
 x = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
 #%% Entrenamiento

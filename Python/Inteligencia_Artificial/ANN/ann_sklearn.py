@@ -11,7 +11,7 @@ transformar = StandardScaler()
 transformar.fit(train_data)
 train_data = transformar.transform(train_data)
 test_data=transformar.transform(test_data)
-# Enrenamiento
+# Entrenamiento
 from sklearn.neural_network import MLPClassifier
 MultiCapa = MLPClassifier(hidden_layer_sizes = (10,10), activation='logistic', max_iter = 10000)
 MultiCapa.fit(train_data, train_labels)
@@ -21,7 +21,7 @@ print("Comparacion")
 print(predict)
 print(test_labels)
 # Metricas de evaluacion
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report 
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 predictions_test = MultiCapa.predict(test_data)
 print(accuracy_score(predictions_test, test_labels))
 print(confusion_matrix(predictions_test, test_labels))

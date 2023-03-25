@@ -7,7 +7,7 @@ from keras.layers import Dense
 #%% Inicializar la CNN
 classifier = Sequential()
 #%% Paso 1 - Convolución
-classifier.add(Conv2D(filters = 32,kernel_size = (3, 3), 
+classifier.add(Conv2D(filters = 32,kernel_size = (3, 3),
                       input_shape = (64, 64, 3), activation = "relu"))
 #%% Paso 2 - Max Pooling
 classifier.add(MaxPooling2D(pool_size = (2,2)))

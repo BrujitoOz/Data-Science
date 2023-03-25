@@ -33,14 +33,14 @@ while True:
         y = f(pesos, entradas[i], umbral)
         # checkar si esta mal clasificado y actualizar
         if y != dx[i]:
-            termino = False 
+            termino = False
             while y != dx[i]:
                 # actualizar
                 pesos, umbral = act(pesos, entradas[i], umbral, dx[i])
                 y = f(pesos, entradas[i], umbral)
     # termina epoca
     if termino:
-        break 
+        break
 
 print(pesos)
 print(umbral)

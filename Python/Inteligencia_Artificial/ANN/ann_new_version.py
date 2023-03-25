@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-dataset = pd.read_csv('Churn_Modelling.csv')
+dataset = pd.read_csv('../Datasets/Churn_Modelling.csv')
 X = dataset.iloc[:, 3:13].values
 y = dataset.iloc[:, 13].values
 #%% Datos categóricos
@@ -13,11 +13,11 @@ X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
 labelencoder_X_2 = LabelEncoder()
 X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
 onehotencoder = ColumnTransformer(
-    [('one_hot_encoder', OneHotEncoder(categories='auto'), [1])],   
-    remainder='passthrough'                        
+    [('one_hot_encoder', OneHotEncoder(categories='auto'), [1])],
+    remainder='passthrough'
 )
 X = onehotencoder.fit_transform(X)
-X = X[:, 1:]
+X = X[:, 1:] # eliminar una columna de los 3 paises
 #%% Train y Test
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
@@ -42,5 +42,9 @@ classifier.fit(X_train, y_train,  batch_size = 10, epochs = 100)
 y_pred  = classifier.predict(X_test)
 y_pred = (y_pred>0.5)
 #%% Elaborar una matriz de confusión
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 cm = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot()
+plt.show()
+# %%
