@@ -1,1 +1,0 @@
-# Maquinas de Turing
