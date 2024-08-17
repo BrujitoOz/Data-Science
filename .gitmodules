@@ -4,3 +4,6 @@
 [submodule "Large Language Models/LostPetAssistant"]
 	path = Large Language Models/LostPetAssistant
 	url = https://github.com/BrujitoOz/LostPetAssistant.git
+[submodule "Large Language Models/OllamaDiscordBot"]
+	path = Large Language Models/OllamaDiscordBot
+	url = https://github.com/BrujitoOz/OllamaDiscordBot.git
